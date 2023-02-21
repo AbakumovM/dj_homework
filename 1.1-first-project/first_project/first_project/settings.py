@@ -36,10 +36,8 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
-
-    # здесь мы подключаем наши приложения
-    'app'
+    'django.contrib.staticfiles',  
+    'app',
 ]
 
 MIDDLEWARE = [

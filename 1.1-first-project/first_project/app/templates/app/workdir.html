@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Домашняя страница</title>
+</head>
+<body>
+    <h1>Список файлов:</h1>
+    <ul style="color: brown; font-size: 20px">
+    {% for i in list %}
+    <li>{{ i }}</li>
+    {% endfor %}
+</ul>    
+</body>
+</html>

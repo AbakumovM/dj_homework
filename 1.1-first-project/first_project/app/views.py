@@ -25,7 +25,7 @@ def time_view(request):
 
 
 def workdir_view(request):
-    workdir = sorted(os.listdir(path='.'))
-    m = [f'{i + 1}){item} ' for i, item in enumerate(workdir)]
-    return HttpResponse(m)
+    workdirl = os.listdir(path='.')
+    context = {'list': workdirl}
+    return render(request, 'app/workdir.html', context)
     raise NotImplemented
