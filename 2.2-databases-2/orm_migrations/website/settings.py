@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
+from http.client import INTERNAL_SERVER_ERROR
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -37,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'school',
+    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
@@ -44,6 +46,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -76,6 +79,8 @@ DATABASES = {
         'NAME': 'netology_orm_migrations',
         'HOST': '127.0.0.1',
         'PORT': '5432',
+        'USER': 'postgres',
+        'PASSWORD': '7667766c',
     }
 }
 
@@ -111,6 +116,8 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+INTERNAL_IPS = ['127.0.0.1']
 
 
 # Static files (CSS, JavaScript, Images)
