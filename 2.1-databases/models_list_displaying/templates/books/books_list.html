@@ -10,11 +10,20 @@
         <div class="row">
             {%for i in books%}
             <div class="book col-md-4">
-                <h2><a href="{{ i.pub_date }}">{{i.name}}</h2></a>
+                <h2><a href="{{ i.pub_date|date:'Y-m-d' }}">{{i.name}}</h2></a>
                 <p>Автор: {{ i.author }}</p>
-                <p>Дата публикации: {{ i.pub_date}}</p>
+                <p>Дата публикации: {{ i.pub_date|date:"Y-m-d" }}</p>
             </div>
             {% endfor %}
+                
         </div>
+        <p></p>
+        <p></p>
+            {% if previous_book %}
+                <a class="button button-primary" href="http://127.0.0.1:8000/books/{{ previous_book.pub_date|date:'Y-m-d' }}"><big><big><{{previous_book.pub_date|date:'Y-m-d' }} </big></big></a>
+            {% endif %}
+            {% if next_book %}
+                <a class="button button-primary" href="http://127.0.0.1:8000/books/{{ next_book.pub_date|date:'Y-m-d' }}"><big><big> {{next_book.pub_date|date:'Y-m-d' }}></big></big></a>
+            {% endif %}
     </div>
 {% endblock %}
