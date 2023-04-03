@@ -7,8 +7,8 @@ POST {{baseUrl}}/products/
 Content-Type: application/json
 
 {
-  "title": "салат",
-  "description": "Лучшие салат на рынке"
+  "title": "курица",
+  "description": "Лучшие курица на рынке"
 }
 
 ###
@@ -20,11 +20,11 @@ Content-Type: application/json
 ###
 
 # обновление продукта
-PATCH {{baseUrl}}/products/1/
+PATCH {{baseUrl}}/products/5/
 Content-Type: application/json
 
 {
-  "description": "Самые сочные и ароматные помидорки"
+  "description": "Самые сочные и ароматные курицы"
 }
 
 ###
@@ -52,15 +52,15 @@ POST {{baseUrl}}/stocks/
 Content-Type: application/json
 
 {
-  "address": "одня такой: www.ленинград-спб.ru3",
+  "address": " такой: www.ленинград-спб.ru3",
   "positions": [
     {
-      "product": 2,
+      "product": 4,
       "quantity": 250,
       "price": 120.50
     },
     {
-      "product": 3,
+      "product": 5,
       "quantity": 100,
       "price": 180
     }
@@ -91,5 +91,11 @@ Content-Type: application/json
 ###
 
 # поиск складов, где есть определенный продукт
-GET {{baseUrl}}/stocks/?products=2
+GET {{baseUrl}}/stocks/?products=3
+Content-Type: application/json
+
+###
+
+# поиск складов, где есть определенный продукт
+GET {{baseUrl}}/stocks/?search=кур
 Content-Type: application/json
