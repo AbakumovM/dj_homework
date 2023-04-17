@@ -9,17 +9,17 @@ def index(request):
 
 def show_catalog(request):
     template = 'catalog.html'
-    context = {}
-    phone_object = list(Phone.objects.values())
-    context.setdefault('phones', phone_object)
-    if request.GET.get('sort', None) == 'min_price':
-        context['phones'].sort(key=lambda item: item['price'])
-        return render(request, template, context)
-    elif request.GET.get('sort', None) == 'max_price':
-        context['phones'].sort(key=lambda item: item['price'], reverse=True)
-        return render(request, template, context)
-    elif request.GET.get('sort', None) == 'name':
-        context['phones'].sort(key=lambda item: item['name'])
+    phone_object = Phone.objects.all()
+    sort_map = {
+        'min_price': 'price',
+        'max_price': '-price',
+        'name': 'name',
+    }
+    context = {'phones': phone_object}
+    sort = request.GET.get('sort')
+    if sort:
+        phones = phone_object.order_by(sort_map[sort])
+        context = {'phones': phones}
         return render(request, template, context)
     return render(request, template, context)
 
