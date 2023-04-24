@@ -10,7 +10,4 @@ class CourseSerializer(serializers.ModelSerializer):
         model = Course
         fields = ("id", "name", "students")
 
-    def create(self, validated_data):
-        if Student.objects.count() > settings.MAX_STUDENTS_PER_COURSE:
-            raise ValidationError()
-        return super().create(validated_data)
+
