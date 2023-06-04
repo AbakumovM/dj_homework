@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-
+from rest_framework.decorators import api_view
 from phones.models import Phone
 from rest_framework.response import Response
 
@@ -31,5 +31,6 @@ def show_product(request, slug):
     context.setdefault('phone', [{'name': i.name, 'price': i.price, 'image': i.image, 'release_date': i.release_date, 'lte_exists': i.lte_exists, 'slug': i.slug} for i in phone_object][0])
     return render(request, template, context)
 
+@api_view(['GET'])
 def sample_view(request):
     return Response('Привет, как дела?')
