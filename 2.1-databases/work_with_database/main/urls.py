@@ -23,4 +23,5 @@ urlpatterns = [
     path('', phones.views.index),
     path('catalog/', phones.views.show_catalog, name='catalog'),
     path('catalog/<slug:slug>/', phones.views.show_product, name='phone'),
+    path('api/v1/test/', phones.views.sample_view),
 ]

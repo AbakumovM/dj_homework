@@ -1,2 +1,9 @@
 django
 psycopg2-binary
+djangorestframework
+psycopg2-binary
+django-filter
+python-dotenv
+gunicorn
+requests
+flake8

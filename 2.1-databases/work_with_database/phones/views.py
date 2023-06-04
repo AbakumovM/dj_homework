@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 
 from phones.models import Phone
-
+from rest_framework.response import Response
 
 def index(request):
     return redirect('catalog')
@@ -30,3 +30,6 @@ def show_product(request, slug):
     phone_object = Phone.objects.filter(slug=slug)
     context.setdefault('phone', [{'name': i.name, 'price': i.price, 'image': i.image, 'release_date': i.release_date, 'lte_exists': i.lte_exists, 'slug': i.slug} for i in phone_object][0])
     return render(request, template, context)
+
+def sample_view(request):
+    return Response('Привет, как дела?')
